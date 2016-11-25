@@ -2,7 +2,7 @@
 
 [Demo](https://rxlabz.github.io/angular-dart-forms-examples/)
 
-![screen](assets/screen.jpg)
+[![screen](assets/screen.jpg)](https://rxlabz.github.io/angular-dart-forms-examples/)
 
 - template based form
 - model based form
