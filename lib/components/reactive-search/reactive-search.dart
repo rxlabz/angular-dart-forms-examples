@@ -4,7 +4,7 @@ import 'dart:html';
 import 'package:angular2/common.dart';
 import 'package:angular2/core.dart';
 
-const String API = "http://jsonplaceholder.typicode.com/posts?title_like=";
+const String API = "https://jsonplaceholder.typicode.com/posts?title_like=";
 
 @Component(
     selector: 'reactive-search',
@@ -46,7 +46,7 @@ class ReactiveSearch implements OnInit {
         .where((String v) => v.length > 3) // q,qu,qua,quas
         .map((String v) => "${API}$v" ) /* "http://jsonplaceholder.typicode.com/posts?title_like=quas"*/
         .asyncMap((v) => HttpRequest.getString(v))
-        .map((j) => JSON.decode(j.body))
+        .map((j) => JSON.decode(j))
         .listen((value) => res = value, onError: (err) => print('error $err'));
 
     fName$.where((String v) => v.length <= 3).listen((e) {
