@@ -1,0 +1,20 @@
+:host {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+
+}
+
+.row{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+material-tab{
+    background-color: #fafafa;
+}
+
+form-tpl{
+    margin:0 auto;
+}
+
+

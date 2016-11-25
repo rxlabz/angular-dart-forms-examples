@@ -1,0 +1,9 @@
+:host{
+    display: block;
+    margin:10px;
+}
+
+.form-box{
+    background: #fff;
+    padding: 12px;
+}
