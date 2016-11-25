@@ -61,7 +61,7 @@ void initFormModel() {
 }
 ```
 
-- new proposition are added to the FormModel
+- new propositions are added to the FormModel
 
 ```html
 <button (click)="addPropControl()">new proposition</button>
