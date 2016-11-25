@@ -23,20 +23,11 @@ class ReactiveSearch implements OnInit {
 
   ReactiveSearch(FormBuilder fb) {
     form = fb.group({
-      'firstname': [
-        '',
-        Validators.compose([Validators.required, Validators.minLength(4)])
-      ],
-      'lastname': ['', Validators.required],
       'search': '',
     });
 
     listenSearch();
 
-    form.controls['firstname'].statusChanges.listen((value) {
-      print('fname status changed :: $value');
-      print('fname status errors :: ${form.controls['firstname'].errors}');
-    });
   }
 
   void listenSearch() {
@@ -50,8 +41,7 @@ class ReactiveSearch implements OnInit {
         .listen((value) => res = value, onError: (err) => print('error $err'));
 
     fName$.where((String v) => v.length <= 3).listen((e) {
-      print('ReactiveSearch.listenSearch  NO_SEARCH');
-      if (res != null) res.clear();
+      if (res != null) res.clear(); // clear results
     });
   }
 
