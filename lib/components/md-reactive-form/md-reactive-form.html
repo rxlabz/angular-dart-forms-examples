@@ -1,1 +1,55 @@
-<h1>MdReativeForm</h1>
+<h1>Material "Reactive" Form</h1>
+
+<div class="card mdl-shadow--2dp column">
+
+    <form novalidate [ngFormModel]="userForm" #f="ngForm"
+    >
+        <!--(ngSubmit)="onSubmit()"-->
+        <material-input ngControl="name" floatingLabel required label="Nom">
+        </material-input>
+        <!--<div [hidden]="f.form.controls['name'].valid">Requis</div>-->
+
+        <div>
+            <material-input #age type="text" floatingLabel required label="Âge" ngControl="age">
+                <!--[errorMsg]="f.form.controls['age'].valid?'':'age incorrect'"-->
+                <!--[numericValue]="getModelValue('age')"-->
+                <!--(numericValueChange)="updateModel('age', $event)"-->
+                <!--[numericValue]="getModelValue('age')"-->
+                <!--[inputText]="getModelValue('age')"-->
+                <!--pattern="[0-9]*"-->
+                <!--[numericValue]=""-->
+            </material-input>
+            <div [hidden]="f.form.controls['age'].valid">Erreurs : {{f.form.controls['age'].errors.toString()}}</div>
+        </div>
+        <div>
+            Genre
+
+            <material-radio-group (selectedChange)="updateModel('genre',$event)">
+                <material-radio value="1"
+                                [checked]="f.form.controls['genre'].value == 1"
+                >Femme
+                </material-radio>
+                <material-radio value="2"
+                                [checked]="f.form.controls['genre'].value == 2"
+                >Homme
+                </material-radio>
+
+            </material-radio-group>
+        </div>
+
+        <div>
+
+            <material-toggle label="Recevoir newsletter" color="blue-grey"
+                             [checked]="f.form.controls['newsletter'].value"
+                             (checkedChange)="updateModel('newsletter',$event)"
+            ></material-toggle>
+        </div>
+
+        <material-button raised class="blue" type="submit" [disabled]="!f.form.valid"
+                         (click)="onSubmit()"
+        >
+            <glyph icon="check"></glyph>
+            Valider
+        </material-button>
+    </form>
+</div>
