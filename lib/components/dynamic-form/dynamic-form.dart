@@ -1,3 +1,4 @@
+import 'package:NGDartForms/components/dynamic-form/question.dart';
 import 'package:angular2/common.dart';
 import 'package:angular2/core.dart';
 
@@ -6,7 +7,7 @@ import 'package:angular2/core.dart';
     templateUrl: 'dynamic-form.html',
     styleUrls: const ['dynamic-form.css'])
 class DynForm implements OnInit {
-  QMulti model;
+  Question model;
 
   FormBuilder fb;
 
@@ -14,7 +15,7 @@ class DynForm implements OnInit {
 
   ControlArray usersControlArray;
 
-  String get formQ => new QMulti.fromMap(questionForm.value).toString();
+  String get formQ => new Question.fromMap(questionForm.value).toString();
 
   DynForm(FormBuilder this.fb) {
     initQModel();
@@ -35,7 +36,7 @@ class DynForm implements OnInit {
   }
 
   void initQModel() {
-    model = new QMulti();
+    model = new Question();
     model.propositions.add(new Proposition(''));
   }
 
@@ -61,8 +62,6 @@ class DynForm implements OnInit {
     props.removeAt(propId);
 
     // todo transmit focus to last item
-    /*if( props.controls.length > 0 )
-      (props.at(props.controls.length-1) as ControlGroup).find('label').*/
   }
 
   onBackspaceKey(String content, int propId, [bool isModelDriven = false]) {
@@ -75,49 +74,3 @@ class DynForm implements OnInit {
 
 }
 
-class QMulti {
-  String label;
-  List<Proposition> propositions;
-
-  QMulti({this.label: '', this.propositions: null}) {
-    if (propositions == null) propositions = [];
-  }
-
-  QMulti.fromMap(Map<String, dynamic> data) {
-    label = data['label'];
-    propositions = (data['propositions'] as List<Map<String, dynamic>>)
-        .map((v) => new Proposition.fromMap(v)).toList();
-  }
-
-  @override
-  String toString() {
-    return "QMulti{ \n"
-        "label : $label,\n props : "
-        "${propositions.fold(
-        '', (String cum, Proposition curr) => cum += curr.toString())} "
-        "}";
-  }
-}
-
-class Proposition {
-  String label;
-  bool isCorrect;
-
-  Proposition(this.label, {this.isCorrect: false});
-
-  Proposition.fromMap(Map<String, dynamic> data) {
-    label = data['label'];
-    isCorrect = data['isCorrect'];
-  }
-
-  @override
-  String toString() {
-    return "Proposition { label : $label , isCorrect $isCorrect}";
-  }
-}
-
-class User {
-  String firstName;
-
-  String lastName;
-}
