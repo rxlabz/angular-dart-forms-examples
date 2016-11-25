@@ -4,8 +4,10 @@
 
 - listen to search input changes stream 
   - filter search with less than 4 caracters
-  - map to api path
-
+  - map to jsonplaceholder api path
+  - asyncMap to loaded json string result
+  - map to decoded JSON
+  
 ```dart
 var fName$ = form.controls['search'].valueChanges;
 

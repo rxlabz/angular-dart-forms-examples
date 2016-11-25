@@ -24,5 +24,4 @@ User{
 }''';
   }
 
-//DateTime birthday;
 }
