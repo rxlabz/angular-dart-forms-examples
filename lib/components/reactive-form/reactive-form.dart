@@ -1,8 +1,5 @@
-import 'dart:convert';
 import 'package:angular2/common.dart';
 import 'package:angular2/core.dart';
-import 'package:http/browser_client.dart';
-import 'package:http/http.dart';
 
 @Component(
     selector: 'reactive-form',
@@ -11,7 +8,6 @@ import 'package:http/http.dart';
 class ReactiveForm implements OnInit {
   ControlGroup form;
 
-  BrowserClient _http;
 
   bool get fNameInvalid => !form.controls['firstname'].valid;
 
@@ -20,7 +16,7 @@ class ReactiveForm implements OnInit {
   List<dynamic> res;
   Stream<Map<String, String>> re$;
 
-  ReactiveForm(FormBuilder fb, this._http) {
+  ReactiveForm(FormBuilder fb) {
     form = fb.group({
       'firstname': [
         3,

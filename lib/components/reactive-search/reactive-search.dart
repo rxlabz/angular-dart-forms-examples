@@ -1,8 +1,8 @@
 import 'dart:convert';
+import 'dart:html';
+
 import 'package:angular2/common.dart';
 import 'package:angular2/core.dart';
-import 'package:http/browser_client.dart';
-import 'package:http/http.dart';
 
 const String API = "http://jsonplaceholder.typicode.com/posts?title_like=";
 
@@ -13,7 +13,6 @@ const String API = "http://jsonplaceholder.typicode.com/posts?title_like=";
 class ReactiveSearch implements OnInit {
   ControlGroup form;
 
-  BrowserClient _http;
 
   bool get fNameInvalid => !form.controls['firstname'].valid;
 
@@ -22,7 +21,7 @@ class ReactiveSearch implements OnInit {
   List<dynamic> res;
   Stream<Map<String, String>> re$;
 
-  ReactiveSearch(FormBuilder fb, this._http) {
+  ReactiveSearch(FormBuilder fb) {
     form = fb.group({
       'firstname': [
         '',
@@ -46,7 +45,7 @@ class ReactiveSearch implements OnInit {
     fName$
         .where((String v) => v.length > 3) // q,qu,qua,quas
         .map((String v) => "${API}$v" ) /* "http://jsonplaceholder.typicode.com/posts?title_like=quas"*/
-        .asyncMap((v) => _http.get(v))
+        .asyncMap((v) => HttpRequest.getString(v))
         .map((j) => JSON.decode(j.body))
         .listen((value) => res = value, onError: (err) => print('error $err'));
 
