@@ -2,7 +2,7 @@
 
 [Demo](https://rxlabz.github.io/angular-dart-forms-examples/)
 
-![screen](/assets/sceen.jpg)
+![screen](assets/screen.jpg)
 
 - template based form
 - model based form
