@@ -1,5 +1,5 @@
-import 'package:angular2/core.dart';
 import 'package:angular2/common.dart';
+import 'package:angular2/core.dart';
 
 @Component(
     selector: 'dynamic-form',
@@ -17,9 +17,12 @@ class DynForm implements OnInit {
   String get formQ => new QMulti.fromMap(questionForm.value).toString();
 
   DynForm(FormBuilder this.fb) {
-    model = new QMulti();
-    model.propositions.add(new Proposition(''));
+    initQModel();
 
+    initFormModel();
+  }
+
+  void initFormModel() {
     usersControlArray = new ControlArray([
       new ControlGroup(
           {'label': new Control('aaa'), 'isCorrect': new Control(false)})
@@ -29,6 +32,11 @@ class DynForm implements OnInit {
       'label': ['', Validators.required],
       'propositions': usersControlArray
     });
+  }
+
+  void initQModel() {
+    model = new QMulti();
+    model.propositions.add(new Proposition(''));
   }
 
   @override

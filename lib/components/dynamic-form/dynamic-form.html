@@ -1,11 +1,10 @@
 <h1>Dynamic nested Form</h1>
 
-<div class="row">
+<div class="row sparound">
 
     <div class="col half">
         <h2>Template driven</h2>
         <form #f="ngForm">
-            <!--[ngFormModel]="questionForm"-->
 
             <div>
                 <input type="text" name="label" [(ngModel)]="model.label"
@@ -15,7 +14,6 @@
             <button (click)="addProp()">new proposition</button>
 
             <div *ngFor="let p of model.propositions; let i = index">
-                <!--<div *ngFor="let p of f.form?.controls['propositions'].controls; let i = index">-->
                 <input type="text" name="proposition" [(ngModel)]="p.label"
                        (key.enter)="addProp()"
                        (keydown.backspace)="onBackspaceKey($event.target.value, i)"
@@ -40,14 +38,12 @@
 
             <button (click)="addPropControl()">new proposition</button>
 
-
             <div *ngFor="let p of fo.form.controls['propositions'].controls; let i = index">
                 <input type="text" name="proposition" [ngFormControl]="p.controls['label']"
                        tabindex="{{(i*2)+2}}"
                        (key.enter)="addPropControl()"
                        (keydown.backspace)="onBackspaceKey($event.target.value, i, true)"
                        required/>
-                <!--[ngFormControl]="p.find('label')"-->
                 <input type="checkbox" name="isCorrect"
                        tabindex="{{(i*2)+3}}"
                        [ngFormControl]="p.controls['isCorrect']"/> correct
