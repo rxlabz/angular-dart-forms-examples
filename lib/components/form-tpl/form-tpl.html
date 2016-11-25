@@ -1,48 +1,59 @@
 <h3>FormTPL</h3>
 
-<div class="card mdl-shadow--2dp">
-<form #userForm="ngForm"
-      (ngSubmit)="onSubmit()">
-    <div>
-        <label for="fldName">
-            Nom
-            <input type="text" id="fldName" #name="ngForm" required
-                   [(ngModel)]="model.name" ngControl="name"
-            />
-            <div [hidden]="name.valid">Requis</div>
-        </label>
+<div class="row sparound">
+    <div class="card mdl-shadow--2dp">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="fldName">
+                    Nom *
+                    <input type="text" id="fldName" #name="ngForm" required
+                           [(ngModel)]="model.name" ngControl="name"
+                           (blur)="validateName()"
+                    />
+                    <div class="warning-label rAlign" [hidden]="name.valid || !nameValidation">Requis</div>
+                </label>
+            </div>
+
+            <div>
+                <label for="fldAge">
+                    Age
+                    <input type="number" id="fldAge" #age="ngForm"
+                           [ngModel]="model.age" (ngModelChange)="updateAge($event)"
+                           ngControl="age"/>
+                </label>
+            </div>
+            <div>
+                Genre
+
+                <div><label for="rdF">
+                    Femme
+                    <input #genreF name="genre" type="radio" id="rdF" value="1"
+                           (change)="updateGenre(genreF.value)"/>
+                </label></div>
+                <div><label for="rdH">
+                    Homme
+                    <input #genreH name="genre" type="radio" id="rdH" value="2"
+                           (change)="updateGenre(genreH.value)"/>
+                </label></div>
+            </div>
+
+            <div>
+                <label for="chkNews">
+                    Recevoir newsletter
+                    <input id="chkNews" type="checkbox"
+                           [(ngModel)]="model.newsletter"
+                    /></label>
+            </div>
+
+            <button type="submit">Valider</button>
+        </form>
     </div>
 
     <div>
-        <label for="fldAge">
-            Age
-            <input type="number" id="fldAge" #age="ngForm"
-                   [ngModel]="model.age" (ngModelChange)="updateAge($event)"
-                   ngControl="age"/>
-        </label>
-    </div>
-    <div>
-        Genre
-        <label for="rdF">
-            Femme
-            <input #genreF name="genre" type="radio" id="rdF" value="1"
-                   (change)="updateGenre(genreF.value)" />
-        </label>
-        <label for="rdH">
-            Homme
-            <input #genreH name="genre" type="radio" id="rdH" value="2"
-                   (change)="updateGenre(genreH.value)"/>
-        </label>
+        <div>Name : {{model.name}}</div>
+        <div>Age : {{model.age}}</div>
+        <div>Genre : {{model.genre}}</div>
+        <div>Newsletter : {{model.newsletter}}</div>
     </div>
 
-    <div>
-        <label for="chkNews">
-            Recevoir newsletter
-            <input id="chkNews" type="checkbox"
-                   [(ngModel)]="model.newsletter"
-            /></label>
-    </div>
-
-    <button type="submit" >Valider</button>
-</form>
 </div>

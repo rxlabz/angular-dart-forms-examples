@@ -1,53 +1,63 @@
 <h1>FormMDL</h1>
 
-<div class="card mdl-shadow--2dp">
+<div class="row sparound">
+    <div class="card mdl-shadow--2dp">
 
-    <form [ngFormModel]="userForm" #f="ngForm"
-          (ngSubmit)="onSubmit()"
-    >
-        <div>
-            <label for="fldName">
-                Nom
-                <input type="text" id="fldName" ngControl="name"
-                />
-                <div [hidden]="f.form.controls['name'].valid">Requis</div>
-            </label>
-        </div>
+        <form [ngFormModel]="userForm" #f="ngForm"
+              (ngSubmit)="onSubmit()"
+        >
+            <div>
+                <label for="fldName">
+                    Nom
+                    <input #fldName type="text" id="fldName" ngControl="name"
+                           (blur)="nameValidation = true"
+                    />
+                    <div class="warning-label rAlign"
+                         [hidden]="userForm.find('name').valid || !nameValidation">
+                        Requis
+                    </div>
+                </label>
+            </div>
 
-        <div>
-            <label for="fldAge">
-                Age
-                <input type="number" id="fldAge" ngControl="age"/>
-            </label>
-        </div>
-        <div>
-            Genre
-            <label for="rdF2">
-                Femme
-                <input #genreF name="genre" type="radio" id="rdF2" value="1"
-                       [checked]="f.form.controls['genre'].value == '1'"
-                       (change)="updateModel('genre','1')"
-                />
-                <!--(change)="f.form.controls['genre'].value = '1'"-->
-            </label>
-            <label for="rdH2">
-                Homme
-                <input #genreH name="genre" type="radio" id="rdH2" value="2"
-                       [checked]="f.form.controls['genre'].value == '2'"
-                       (change)="f.form.controls['genre'].updateValue('2')"
-                />
-                <!--(change)="updateModel('genre','2')"-->
-                <!--(change)="updateGenre(genreH.value)"-->
-            </label>
-        </div>
+            <div>
+                <label for="fldAge">
+                    Age
+                    <input type="number" id="fldAge" ngControl="age"/>
+                </label>
+            </div>
+            <div>
+                Genre
+                <label for="rdF2">
+                    Femme
+                    <input #genreF name="genre" type="radio" id="rdF2" value="1"
+                           [checked]="f.form.controls['genre'].value == '1'"
+                           (change)="updateModel('genre','1')"
+                    />
+                    <!--(change)="f.form.controls['genre'].value = '1'"-->
+                </label>
+                <label for="rdH2">
+                    Homme
+                    <input #genreH name="genre" type="radio" id="rdH2" value="2"
+                           [checked]="f.form.controls['genre'].value == '2'"
+                           (change)="f.form.controls['genre'].updateValue('2')"
+                    />
+                    <!--(change)="updateModel('genre','2')"-->
+                    <!--(change)="updateGenre(genreH.value)"-->
+                </label>
+            </div>
 
-        <div>
-            <label for="chkNews">
-                Recevoir newsletter
-                <input id="chkNews" type="checkbox" ngControl="newsletter"
-                /></label>
-        </div>
+            <div>
+                <label for="chkNews">
+                    Recevoir newsletter
+                    <input id="chkNews" type="checkbox" ngControl="newsletter"
+                    /></label>
+            </div>
 
-        <button type="submit" [disabled]="!f.form.valid">Valider</button>
-    </form>
+            <button type="submit" [disabled]="!f.form.valid">Valider</button>
+        </form>
+    </div>
+
+    <div>
+        {{userForm.value | json}}
+    </div>
 </div>

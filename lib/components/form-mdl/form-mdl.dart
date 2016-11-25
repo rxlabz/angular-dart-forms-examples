@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:angular2/common.dart';
 import 'package:angular2/core.dart';
 
@@ -8,6 +9,8 @@ import 'package:angular2/core.dart';
     styleUrls: const ['form-mdl.css'])
 class FormMDL implements OnInit {
   ControlGroup userForm;
+
+  bool nameValidation = false;
 
   FormMDL(FormBuilder fb) {
     userForm = fb.group({

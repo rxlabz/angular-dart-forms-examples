@@ -84,3 +84,22 @@ li{
     display: flex;
     flex-direction: column;
 }
+
+.sparound {
+    justify-content: space-around;
+}
+
+label {
+    width: 100px;
+}
+
+.warning-label {
+    background: orange;
+    padding: 4px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.rAlign {
+    text-align: right;
+}

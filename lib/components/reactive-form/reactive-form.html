@@ -7,8 +7,9 @@
             <label for="fldFirstname">
                 Prénom
                 <input type="text" id="fldFirstname" ngControl="firstname"
+                       (blur)="fNameValidation=true"
                 />
-            <div [hidden]="!fNameInvalid">{{fNameError}}</div>
+                <div class="warning-label rAlign" [hidden]="!fNameInvalid">{{fNameError}}</div>
             </label>
 
             <!--{{fNameInvalid ? 'INVALID' : 'VALID'}}-->
@@ -16,9 +17,10 @@
         <div>
             <label for="fldLastname">
                 Nom
-                <input type="text" id="fldLastname" ngControl="lastname"
+                <input type="text" id="fldLastname" ngControl="lastname" required
+                       (blur)="lNameValidation=true"
                 />
-                <div [hidden]="f.form.controls['lastname'].valid">Requis</div>
+                <div class="warning-label rAlign" [hidden]="!lNameInvalid">Requis</div>
             </label>
         </div>
         <button>Submit</button>

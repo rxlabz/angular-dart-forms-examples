@@ -8,8 +8,12 @@ import 'package:angular2/core.dart';
 class ReactiveForm implements OnInit {
   ControlGroup form;
 
+  bool fNameValidation = false;
+  bool lNameValidation = false;
 
-  bool get fNameInvalid => !form.controls['firstname'].valid;
+  bool get fNameInvalid => !form.controls['firstname'].valid && fNameValidation;
+
+  bool get lNameInvalid => !form.controls['lastname'].valid && lNameValidation;
 
   String get fNameError => fNameInvalid ? 'Ce champ est obligatoire' : '';
 
@@ -19,7 +23,7 @@ class ReactiveForm implements OnInit {
   ReactiveForm(FormBuilder fb) {
     form = fb.group({
       'firstname': [
-        3,
+        '',
         Validators.compose([Validators.required, ])
       ],
       'lastname': ['', Validators.required],
