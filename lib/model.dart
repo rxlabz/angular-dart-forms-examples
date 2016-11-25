@@ -1,12 +1,10 @@
 class User {
-  int id;
   String name;
   int age;
   int genre;
   bool newsletter;
 
-  User(
-      {this.id: 1,
+  User({
       this.name: "",
       this.age: 0,
       this.genre: 1,
@@ -16,7 +14,6 @@ class User {
   String toString() {
     return '''
 User{
-  int id : $id
   String name : $name
   int age : $age
   int genre : $genre
