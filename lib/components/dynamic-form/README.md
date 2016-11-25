@@ -5,6 +5,8 @@ Multi-choices question form
 ## Dynamic Template driven 
 
 - Form is binded to a QMulti model
+- new propositions can be added via button or enter key
+- propositions can be removed via keydown.backspace if they are empty
 
 ```dart
 void initQModel() {
@@ -13,7 +15,7 @@ void initQModel() {
 }
 ```
 
-- new proposition are added to the QMulti model and displayed in the form  
+- new propositions are added to the QMulti model and displayed in the form  
 
 ```html
 <button (click)="addProp()">new proposition</button>
