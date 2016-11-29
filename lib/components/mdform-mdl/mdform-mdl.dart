@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'package:NGDartForms/model.dart';
 import 'package:angular2/common.dart';
 import 'package:angular2/core.dart';
 import 'package:angular2_components/angular2_components.dart';
@@ -10,52 +10,42 @@ import 'package:angular2_components/angular2_components.dart';
     directives: const [materialDirectives],
     providers: const [materialProviders])
 class MDFormMDL implements OnInit {
-  ControlGroup userForm;
+  User user;
+
+  bool ageValidation = false;
+  bool nameValidation = false;
 
   MDFormMDL(FormBuilder fb) {
-    userForm = fb.group({
-      "name": ['', Validators.required],
-      "age": [
-        '',
-        Validators.compose([
-          Validators.required,
-          (AbstractControl c) {
-            if (c.value == '') return null;
+    user = new User();
+  }
 
-            var r = new RegExp('[0-9]*');
-            if (!r.hasMatch(c.value))
-              return {'Erreur': 'format incoorect'};
+  String get age {
+    return user.age.toString();
+  }
 
-            int.parse(c.value) > 0 ? null : {"incorrect": "numérique attendue"};
-          }
-        ])
-      ],
-      "genre": [2, Validators.required],
-      "newsletter": new Control(true)
-    });
+  set age(String value) {
+    if (value == '') return;
+
+    try {
+      user.age = num.parse(value);
+    } catch (e) {
+      print('MDFormMDL.age... ');
+    }
   }
 
   @override
   ngOnInit() {}
 
   String get value {
-    return JSON.encode(userForm.value);
+    return user.toString();
   }
 
-  dynamic getModelValue(String propertyName) {
-    return userForm.value[propertyName];
+  updateAge(e) {
+    print('MDFormMDL.updateAge » e ${e}');
   }
 
   onSubmit() {
     print('FormMDL.onSubmit » value ${value}');
   }
 
-  /// soit fonction Compo
-  /// soit ds template : `f.form.controls['genre'].updateValue('2')`
-  updateModel(String propName, dynamic v) {
-    print('FormMDL.updateModel » $propName » v ${v}');
-    (userForm.controls[propName] as Control).updateValue(v);
-    print('FormMDL.updateModel » value ${value}');
-    print('FormMDL.updateModel  userForm.valid ${userForm.valid}');
-  }
 }

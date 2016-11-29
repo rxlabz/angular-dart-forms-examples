@@ -2,65 +2,43 @@
 
 <div class="card mdl-shadow--2dp column">
 
-    <form novalidate [ngFormModel]="userForm" #f="ngForm"
+    <form novalidate #f="ngForm"
     >
         <!--(ngSubmit)="onSubmit()"-->
-        <material-input ngControl="name" floatingLabel required label="Nom">
+        <material-input [(ngModel)]="user.name" floatingLabel required label="Nom"
+                        #name="ngForm"
+        >
         </material-input>
-        <!--<div [hidden]="f.form.controls['name'].valid">Requis</div>-->
 
         <div>
-            <material-input #age type="text" floatingLabel required label="Âge" ngControl="age">
-                <!--[errorMsg]="f.form.controls['age'].valid?'':'age incorrect'"-->
-                <!--[numericValue]="getModelValue('age')"-->
-                <!--(numericValueChange)="updateModel('age', $event)"-->
-                <!--[numericValue]="getModelValue('age')"-->
-                <!--[inputText]="getModelValue('age')"-->
-                <!--pattern="[0-9]*"-->
-                <!--[numericValue]=""-->
+            <material-input #fldAge type="number" floatingLabel required label="Âge"
+                            [ngModel]="user.age.toString()"
+                            (ngModelChange)="age=$event"
+            >
             </material-input>
-            <div [hidden]="f.form.controls['age'].valid">Erreurs : {{f.form.controls['age'].errors.toString()}}</div>
         </div>
         <div>
             Genre
 
-            <material-radio-group (selectedChange)="updateModel('genre',$event)">
-                <material-radio value="1"
-                                [checked]="f.form.controls['genre'].value == 1"
+            <material-radio-group (selectedChange)=" user.genre = $event">
+                <material-radio [value]="1"
+                                [checked]="user.genre == 1"
                 >Femme
                 </material-radio>
-                <material-radio value="2"
-                                [checked]="f.form.controls['genre'].value == 2"
+                <material-radio [value]="2"
+                                [checked]="user.genre == 2"
                 >Homme
                 </material-radio>
 
             </material-radio-group>
-            <!--<label for="rdF3">
-                Femme
-                <input #genreF name="genre" type="radio" id="rdF3" value="1"
-                       [checked]="f.form.controls['genre'].value == 1"
-                       (change)="updateModel('genre',1)"
-                />
-                &lt;!&ndash;(change)="f.form.controls['genre'].value = '1'"&ndash;&gt;
-            </label>
-            <label for="rdH3">
-                Homme
-                <input #genreH name="genre" type="radio" id="rdH3" value="2"
-                       [checked]="f.form.controls['genre'].value == 2"
-                       (change)="updateModel('genre',2)"
-                />
-                &lt;!&ndash;(change)="updateModel('genre','2')"&ndash;&gt;
-                &lt;!&ndash;(change)="updateGenre(genreH.value)"&ndash;&gt;
-            </label>-->
         </div>
 
         <div>
 
             <material-toggle label="Recevoir newsletter" color="blue-grey"
-                             [checked]="f.form.controls['newsletter'].value"
-                             (checkedChange)="updateModel('newsletter',$event)"
+                             [(checked)]="user.newsletter"
             ></material-toggle>
-            <!--ngControl="newsletter"-->
+            <!--(checkedChange)="updateModel('newsletter',$event)"-->
         </div>
 
         <material-button raised class="blue" type="submit" [disabled]="!f.form.valid"
