@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:angular2/common.dart';
 import 'package:angular2/core.dart';
 import 'package:angular2_components/angular2_components.dart';
@@ -7,7 +8,7 @@ import 'package:angular2_components/angular2_components.dart';
     selector: 'mdinputs',
     templateUrl: 'mdinputs.html',
     styleUrls: const ['mdinputs.css'],
-    directives: const [materialDirectives, MaterialNumberInputValidatorDirective],
+    directives: const [materialDirectives],
     providers: const [materialProviders])
 class MdInputs implements OnInit {
 
@@ -24,12 +25,10 @@ class MdInputs implements OnInit {
   @override
   ngOnInit() {
     form = fb.group({
-      "age" : [null,Validators.compose( [Validators.required,  (AbstractControl c){
-        print('Validate number   ${c.value}');
-        String valRes = new NumberValidator(false, false, 1, 100, 'err').call(c.value.toString());
-        if(valRes != null) return {"Erreur":valRes};
-        return null;
-      }])]
+      "age" : [null, Validators.compose([Validators.required
+        /* TODO numberValidation */
+      ])
+      ]
     });
   }
 
