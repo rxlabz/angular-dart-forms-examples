@@ -1,0 +1,51 @@
+<h1>FormMDL</h1>
+
+<div class="card mdl-shadow--2dp column">
+
+    <form novalidate #f="ngForm"
+    >
+        <!--(ngSubmit)="onSubmit()"-->
+        <material-input [(ngModel)]="user.name" floatingLabel required label="Nom"
+                        #name="ngForm"
+        >
+        </material-input>
+
+        <div>
+            <material-input #fldAge type="number" floatingLabel required label="Âge"
+                            [ngModel]="user.age.toString()"
+                            (ngModelChange)="age=$event"
+            >
+            </material-input>
+        </div>
+        <div>
+            Genre
+
+            <material-radio-group (selectedChange)=" user.genre = $event">
+                <material-radio [value]="1"
+                                [checked]="user.genre == 1"
+                >Femme
+                </material-radio>
+                <material-radio [value]="2"
+                                [checked]="user.genre == 2"
+                >Homme
+                </material-radio>
+
+            </material-radio-group>
+        </div>
+
+        <div>
+
+            <material-toggle label="Recevoir newsletter" color="blue-grey"
+                             [(checked)]="user.newsletter"
+            ></material-toggle>
+            <!--(checkedChange)="updateModel('newsletter',$event)"-->
+        </div>
+
+        <material-button raised class="blue" type="submit" [disabled]="!f.form.valid"
+                         (click)="onSubmit()"
+        >
+            <glyph icon="check"></glyph>
+            Valider
+        </material-button>
+    </form>
+</div>

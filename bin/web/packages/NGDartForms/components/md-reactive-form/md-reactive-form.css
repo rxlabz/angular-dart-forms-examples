@@ -1,0 +1,13 @@
+:host{
+
+}
+
+.blue {
+    color: #fff;
+    background-color: #38b;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}

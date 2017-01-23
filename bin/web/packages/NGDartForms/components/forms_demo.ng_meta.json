@@ -1,0 +1,1793 @@
+{
+  "ngDeps": {
+    "1": "",
+    "4": [
+      {
+        "1": "form-mdl/form-mdl.dart"
+      },
+      {
+        "1": "mdform-mdl/mdform-mdl.dart"
+      },
+      {
+        "1": "form-tpl/form-tpl.dart"
+      },
+      {
+        "1": "reactive-form/reactive-form.dart"
+      },
+      {
+        "1": "reactive-search/reactive-search.dart"
+      }
+    ],
+    "6": "forms_demo.dart",
+    "7": [
+      {
+        "1": "form-mdl/form-mdl.template.dart",
+        "4": "i0"
+      },
+      {
+        "1": "mdform-mdl/mdform-mdl.template.dart",
+        "4": "i1"
+      },
+      {
+        "1": "form-tpl/form-tpl.template.dart",
+        "4": "i2"
+      },
+      {
+        "1": "reactive-form/reactive-form.template.dart",
+        "4": "i3"
+      },
+      {
+        "1": "reactive-search/reactive-search.template.dart",
+        "4": "i4"
+      }
+    ]
+  },
+  "type": {
+    "FormMDL": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "form-mdl",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "FormMDL",
+        "moduleUrl": "asset:NGDartForms/lib/components/form-mdl/form-mdl.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "FormBuilder",
+                "moduleUrl": "asset:angular2/lib/src/common/forms/form_builder.dart",
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h1>FormMDL</h1>\n\n<div class=\"row sparound\">\n    <div class=\"card mdl-shadow--2dp\">\n\n        <form [ngFormModel]=\"userForm\" #f=\"ngForm\"\n              (ngSubmit)=\"onSubmit()\"\n        >\n            <div>\n                <label for=\"fldName\">\n                    Nom\n                    <input #fldName type=\"text\" id=\"fldName\" ngControl=\"name\"\n                           (blur)=\"nameValidation = true\"\n                    />\n                    <div class=\"warning-label rAlign\"\n                         [hidden]=\"userForm.find('name').valid || !nameValidation\">\n                        Requis\n                    </div>\n                </label>\n            </div>\n\n            <div>\n                <label for=\"fldAge\">\n                    Age\n                    <input type=\"number\" id=\"fldAge\" ngControl=\"age\"/>\n                </label>\n            </div>\n            <div>\n                Genre\n                <label for=\"rdF2\">\n                    Femme\n                    <input #genreF name=\"genre\" type=\"radio\" id=\"rdF2\" value=\"1\"\n                           [checked]=\"f.form.controls['genre'].value == '1'\"\n                           (change)=\"updateModel('genre','1')\"\n                    />\n                    <!--(change)=\"f.form.controls['genre'].value = '1'\"-->\n                </label>\n                <label for=\"rdH2\">\n                    Homme\n                    <input #genreH name=\"genre\" type=\"radio\" id=\"rdH2\" value=\"2\"\n                           [checked]=\"f.form.controls['genre'].value == '2'\"\n                           (change)=\"f.form.controls['genre'].updateValue('2')\"\n                    />\n                    <!--(change)=\"updateModel('genre','2')\"-->\n                    <!--(change)=\"updateGenre(genreH.value)\"-->\n                </label>\n            </div>\n\n            <div>\n                <label for=\"chkNews\">\n                    Recevoir newsletter\n                    <input id=\"chkNews\" type=\"checkbox\" ngControl=\"newsletter\"\n                    /></label>\n            </div>\n\n            <button type=\"submit\" [disabled]=\"!f.form.valid\">Valider</button>\n        </form>\n    </div>\n\n    <div>\n        {{userForm.value | json}}\n    </div>\n</div>",
+        "templateUrl": "asset:NGDartForms/lib/components/form-mdl/form-mdl.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:NGDartForms/lib/components/form-mdl/form-mdl.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "MDFormMDL": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "mdform-mdl",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "MDFormMDL",
+        "moduleUrl": "asset:NGDartForms/lib/components/mdform-mdl/mdform-mdl.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "FormBuilder",
+                "moduleUrl": "asset:angular2/lib/src/common/forms/form_builder.dart",
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h1>FormMDL</h1>\n\n<div class=\"card mdl-shadow--2dp column\">\n\n    <form novalidate #f=\"ngForm\"\n    >\n        <!--(ngSubmit)=\"onSubmit()\"-->\n        <material-input [(ngModel)]=\"user.name\" floatingLabel required label=\"Nom\"\n                        #name=\"ngForm\"\n        >\n        </material-input>\n\n        <div>\n            <material-input #fldAge type=\"number\" floatingLabel required label=\"Âge\"\n                            [ngModel]=\"user.age.toString()\"\n                            (ngModelChange)=\"age=$event\"\n            >\n            </material-input>\n        </div>\n        <div>\n            Genre\n\n            <material-radio-group (selectedChange)=\" user.genre = $event\">\n                <material-radio [value]=\"1\"\n                                [checked]=\"user.genre == 1\"\n                >Femme\n                </material-radio>\n                <material-radio [value]=\"2\"\n                                [checked]=\"user.genre == 2\"\n                >Homme\n                </material-radio>\n\n            </material-radio-group>\n        </div>\n\n        <div>\n\n            <material-toggle label=\"Recevoir newsletter\" color=\"blue-grey\"\n                             [(checked)]=\"user.newsletter\"\n            ></material-toggle>\n            <!--(checkedChange)=\"updateModel('newsletter',$event)\"-->\n        </div>\n\n        <material-button raised class=\"blue\" type=\"submit\" [disabled]=\"!f.form.valid\"\n                         (click)=\"onSubmit()\"\n        >\n            <glyph icon=\"check\"></glyph>\n            Valider\n        </material-button>\n    </form>\n</div>",
+        "templateUrl": "asset:NGDartForms/lib/components/mdform-mdl/mdform-mdl.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:NGDartForms/lib/components/mdform-mdl/mdform-mdl.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "defaultPopupPositions",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/popup/src/popup_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": {
+            "class": "Identifier",
+            "name": "inlinePositions",
+            "moduleUrl": "asset:angular2_components/lib/src/laminate/popup/module.dart",
+            "prefix": null,
+            "value": null
+          },
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "AcxImperativeViewUtils",
+              "moduleUrl": "asset:angular2_components/lib/src/utils/angular/imperative_view/imperative_view.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "AcxImperativeViewUtils",
+            "moduleUrl": "asset:angular2_components/lib/src/utils/angular/imperative_view/imperative_view.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "DynamicComponentLoader",
+                    "moduleUrl": "asset:angular2/lib/src/core/linker/dynamic_component_loader.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "DomService",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/dom_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "DomRuler",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/ruler/dom_ruler.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "DomRuler",
+            "moduleUrl": "asset:angular2_components/lib/src/laminate/ruler/dom_ruler.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "Document",
+                    "moduleUrl": "dart:html",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "DomService",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/dom_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "DomService",
+              "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/dom_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": {
+            "class": "Factory",
+            "name": "createDomService",
+            "prefix": null,
+            "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/angular_2.dart",
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "DomService",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/dom_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": true,
+                "isOptional": true,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "Disposer",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/disposer/disposer.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": true,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "ManagedZone",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/angular/managed_zone/src/managed_zone.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "Window",
+                    "moduleUrl": "dart:html",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useProperty": null,
+          "multi": false,
+          "deps": [
+            {
+              "token": {
+                "value": null,
+                "identifier": {
+                  "class": "Identifier",
+                  "name": "DomService",
+                  "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/dom_service.dart",
+                  "prefix": null,
+                  "value": null
+                },
+                "identifierIsInstance": false
+              },
+              "value": null,
+              "isAttribute": false,
+              "isSelf": false,
+              "isHost": false,
+              "isSkipSelf": true,
+              "isOptional": true,
+              "isValue": false
+            },
+            {
+              "token": {
+                "value": null,
+                "identifier": {
+                  "class": "Identifier",
+                  "name": "Disposer",
+                  "moduleUrl": "asset:angular2_components/lib/src/utils/disposer/disposer.dart",
+                  "prefix": null,
+                  "value": null
+                },
+                "identifierIsInstance": false
+              },
+              "value": null,
+              "isAttribute": false,
+              "isSelf": false,
+              "isHost": false,
+              "isSkipSelf": false,
+              "isOptional": true,
+              "isValue": false
+            },
+            {
+              "token": {
+                "value": null,
+                "identifier": {
+                  "class": "Identifier",
+                  "name": "ManagedZone",
+                  "moduleUrl": "asset:angular2_components/lib/src/utils/angular/managed_zone/src/managed_zone.dart",
+                  "prefix": null,
+                  "value": null
+                },
+                "identifierIsInstance": false
+              },
+              "value": null,
+              "isAttribute": false,
+              "isSelf": false,
+              "isHost": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "isValue": false
+            },
+            {
+              "token": {
+                "value": null,
+                "identifier": {
+                  "class": "Identifier",
+                  "name": "Window",
+                  "moduleUrl": "dart:html",
+                  "prefix": null,
+                  "value": null
+                },
+                "identifierIsInstance": false
+              },
+              "value": null,
+              "isAttribute": false,
+              "isSelf": false,
+              "isHost": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "isValue": false
+            }
+          ]
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "ManagedZone",
+              "moduleUrl": "asset:angular2_components/lib/src/utils/angular/managed_zone/src/managed_zone.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "Angular2ManagedZone",
+            "moduleUrl": "asset:angular2_components/lib/src/utils/angular/managed_zone/angular_2.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "NgZone",
+                    "moduleUrl": "asset:angular2/lib/src/core/zone/ng_zone.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "overlayContainerName",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": "default",
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "overlayContainerToken",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": {
+            "class": "Factory",
+            "name": "getDefaultContainer",
+            "prefix": null,
+            "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/module.dart",
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "overlayContainerName",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "overlayContainerParent",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "overlayContainerParent",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": {
+            "class": "Factory",
+            "name": "getOverlayContainerParent",
+            "prefix": null,
+            "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/module.dart",
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "Document",
+                    "moduleUrl": "dart:html",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "overlaySyncDom",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": true,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "OverlayDomRenderService",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "OverlayDomRenderService",
+            "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "OverlayStyleConfig",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_style_config.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "overlayContainerToken",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "overlayContainerName",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "DomRuler",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/ruler/dom_ruler.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "DomService",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/dom_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "AcxImperativeViewUtils",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/angular/imperative_view/imperative_view.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "overlaySyncDom",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "ZIndexer",
+                    "moduleUrl": "asset:angular2_components/lib/src/css/acux/zindexer.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "OverlayStyleConfig",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_style_config.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "OverlayStyleConfig",
+            "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_style_config.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "Document",
+                    "moduleUrl": "dart:html",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "OverlayService",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/overlay_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "OverlayDomService",
+            "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/overlay_dom_service.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "NgZone",
+                    "moduleUrl": "asset:angular2/lib/src/core/zone/ng_zone.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "overlaySyncDom",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "OverlayDomRenderService",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/render/overlay_dom_render_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "OverlayService",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/overlay_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": true,
+                "isOptional": true,
+                "isValue": false
+              }
+            ]
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "Document",
+              "moduleUrl": "dart:html",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": {
+            "class": "Factory",
+            "name": "getDocument",
+            "prefix": null,
+            "moduleUrl": "asset:angular2_components/lib/src/utils/browser/window/module.dart",
+            "value": null,
+            "diDeps": []
+          },
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "Window",
+              "moduleUrl": "dart:html",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": {
+            "class": "Factory",
+            "name": "getWindow",
+            "prefix": null,
+            "moduleUrl": "asset:angular2_components/lib/src/utils/browser/window/module.dart",
+            "value": null,
+            "diDeps": []
+          },
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "ZIndexer",
+              "moduleUrl": "asset:angular2_components/lib/src/css/acux/zindexer.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "ZIndexer",
+            "moduleUrl": "asset:angular2_components/lib/src/css/acux/zindexer.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": []
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "DomPopupSourceFactory",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/popup/src/dom_popup_source.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "DomPopupSourceFactory",
+            "moduleUrl": "asset:angular2_components/lib/src/laminate/popup/src/dom_popup_source.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "Window",
+                    "moduleUrl": "dart:html",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "DomRuler",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/ruler/dom_ruler.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "PopupService",
+              "moduleUrl": "asset:angular2_components/lib/src/laminate/popup/src/popup_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "PopupService",
+            "moduleUrl": "asset:angular2_components/lib/src/laminate/popup/src/popup_service.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "defaultPopupPositions",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/popup/src/popup_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "OverlayService",
+                    "moduleUrl": "asset:angular2_components/lib/src/laminate/overlay/src/overlay_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "ZIndexer",
+                    "moduleUrl": "asset:angular2_components/lib/src/css/acux/zindexer.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "Document",
+              "moduleUrl": "dart:html",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": {
+            "class": "Factory",
+            "name": "getDocument",
+            "prefix": null,
+            "moduleUrl": "asset:angular2_components/lib/src/utils/browser/window/module.dart",
+            "value": null,
+            "diDeps": []
+          },
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "Window",
+              "moduleUrl": "dart:html",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": {
+            "class": "Factory",
+            "name": "getWindow",
+            "prefix": null,
+            "moduleUrl": "asset:angular2_components/lib/src/utils/browser/window/module.dart",
+            "value": null,
+            "diDeps": []
+          },
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "DomService",
+              "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/dom_service.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": null,
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": {
+            "class": "Factory",
+            "name": "createDomService",
+            "prefix": null,
+            "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/angular_2.dart",
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "DomService",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/dom_service.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": true,
+                "isOptional": true,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "Disposer",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/disposer/disposer.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": true,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "ManagedZone",
+                    "moduleUrl": "asset:angular2_components/lib/src/utils/angular/managed_zone/src/managed_zone.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              },
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "Window",
+                    "moduleUrl": "dart:html",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useProperty": null,
+          "multi": false,
+          "deps": [
+            {
+              "token": {
+                "value": null,
+                "identifier": {
+                  "class": "Identifier",
+                  "name": "DomService",
+                  "moduleUrl": "asset:angular2_components/lib/src/utils/browser/dom_service/dom_service.dart",
+                  "prefix": null,
+                  "value": null
+                },
+                "identifierIsInstance": false
+              },
+              "value": null,
+              "isAttribute": false,
+              "isSelf": false,
+              "isHost": false,
+              "isSkipSelf": true,
+              "isOptional": true,
+              "isValue": false
+            },
+            {
+              "token": {
+                "value": null,
+                "identifier": {
+                  "class": "Identifier",
+                  "name": "Disposer",
+                  "moduleUrl": "asset:angular2_components/lib/src/utils/disposer/disposer.dart",
+                  "prefix": null,
+                  "value": null
+                },
+                "identifierIsInstance": false
+              },
+              "value": null,
+              "isAttribute": false,
+              "isSelf": false,
+              "isHost": false,
+              "isSkipSelf": false,
+              "isOptional": true,
+              "isValue": false
+            },
+            {
+              "token": {
+                "value": null,
+                "identifier": {
+                  "class": "Identifier",
+                  "name": "ManagedZone",
+                  "moduleUrl": "asset:angular2_components/lib/src/utils/angular/managed_zone/src/managed_zone.dart",
+                  "prefix": null,
+                  "value": null
+                },
+                "identifierIsInstance": false
+              },
+              "value": null,
+              "isAttribute": false,
+              "isSelf": false,
+              "isHost": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "isValue": false
+            },
+            {
+              "token": {
+                "value": null,
+                "identifier": {
+                  "class": "Identifier",
+                  "name": "Window",
+                  "moduleUrl": "dart:html",
+                  "prefix": null,
+                  "value": null
+                },
+                "identifierIsInstance": false
+              },
+              "value": null,
+              "isAttribute": false,
+              "isSelf": false,
+              "isHost": false,
+              "isSkipSelf": false,
+              "isOptional": false,
+              "isValue": false
+            }
+          ]
+        },
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Identifier",
+              "name": "ManagedZone",
+              "moduleUrl": "asset:angular2_components/lib/src/utils/angular/managed_zone/src/managed_zone.dart",
+              "prefix": null,
+              "value": null
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "Angular2ManagedZone",
+            "moduleUrl": "asset:angular2_components/lib/src/utils/angular/managed_zone/angular_2.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": [
+              {
+                "token": {
+                  "value": null,
+                  "identifier": {
+                    "class": "Identifier",
+                    "name": "NgZone",
+                    "moduleUrl": "asset:angular2/lib/src/core/zone/ng_zone.dart",
+                    "prefix": null,
+                    "value": null
+                  },
+                  "identifierIsInstance": false
+                },
+                "value": null,
+                "isAttribute": false,
+                "isSelf": false,
+                "isHost": false,
+                "isSkipSelf": false,
+                "isOptional": false,
+                "isValue": false
+              }
+            ]
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        }
+      ],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "FormTPL": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "form-tpl",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "FormTPL",
+        "moduleUrl": "asset:NGDartForms/lib/components/form-tpl/form-tpl.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h3>FormTPL</h3>\n\n<div class=\"row sparound\">\n    <div class=\"card mdl-shadow--2dp\">\n        <form #userForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n            <div>\n                <label for=\"fldName\">\n                    Nom *\n                    <input type=\"text\" id=\"fldName\" #name=\"ngForm\" required\n                           [(ngModel)]=\"model.name\" ngControl=\"name\"\n                           (blur)=\"validateName()\"\n                    />\n                    <div class=\"warning-label rAlign\" [hidden]=\"name.valid || !nameValidation\">Requis</div>\n                </label>\n            </div>\n\n            <div>\n                <label for=\"fldAge\">\n                    Age\n                    <input type=\"number\" id=\"fldAge\" #age=\"ngForm\"\n                           [ngModel]=\"model.age\" (ngModelChange)=\"updateAge($event)\"\n                           ngControl=\"age\"/>\n                </label>\n            </div>\n            <div>\n                Genre\n\n                <div><label for=\"rdF\">\n                    Femme\n                    <input #genreF name=\"genre\" type=\"radio\" id=\"rdF\" value=\"1\"\n                           (change)=\"updateGenre(genreF.value)\"/>\n                </label></div>\n                <div><label for=\"rdH\">\n                    Homme\n                    <input #genreH name=\"genre\" type=\"radio\" id=\"rdH\" value=\"2\"\n                           (change)=\"updateGenre(genreH.value)\"/>\n                </label></div>\n            </div>\n\n            <div>\n                <label for=\"chkNews\">\n                    Recevoir newsletter\n                    <input id=\"chkNews\" type=\"checkbox\"\n                           [(ngModel)]=\"model.newsletter\"\n                    /></label>\n            </div>\n\n            <button type=\"submit\">Valider</button>\n        </form>\n    </div>\n\n    <div>\n        <div>Name : {{model.name}}</div>\n        <div>Age : {{model.age}}</div>\n        <div>Genre : {{model.genre}}</div>\n        <div>Newsletter : {{model.newsletter}}</div>\n    </div>\n\n</div>",
+        "templateUrl": "asset:NGDartForms/lib/components/form-tpl/form-tpl.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:NGDartForms/lib/components/form-tpl/form-tpl.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "ReactiveForm": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "reactive-form",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "ReactiveForm",
+        "moduleUrl": "asset:NGDartForms/lib/components/reactive-form/reactive-form.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "FormBuilder",
+                "moduleUrl": "asset:angular2/lib/src/common/forms/form_builder.dart",
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h1>ReactiveForm</h1>\n\n<div class=\"card mdl-shadow--2dp\">\n    <form [ngFormModel]=\"form\" #f=\"ngForm\">\n\n        <div>\n            <label for=\"fldFirstname\">\n                Prénom\n                <input type=\"text\" id=\"fldFirstname\" ngControl=\"firstname\"\n                       (blur)=\"fNameValidation=true\"\n                />\n                <div class=\"warning-label rAlign\" [hidden]=\"!fNameInvalid\">{{fNameError}}</div>\n            </label>\n\n            <!--{{fNameInvalid ? 'INVALID' : 'VALID'}}-->\n        </div>\n        <div>\n            <label for=\"fldLastname\">\n                Nom\n                <input type=\"text\" id=\"fldLastname\" ngControl=\"lastname\" required\n                       (blur)=\"lNameValidation=true\"\n                />\n                <div class=\"warning-label rAlign\" [hidden]=\"!lNameInvalid\">Requis</div>\n            </label>\n        </div>\n        <button>Submit</button>\n    </form>\n\n</div>\n",
+        "templateUrl": "asset:NGDartForms/lib/components/reactive-form/reactive-form.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:NGDartForms/lib/components/reactive-form/reactive-form.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "API": {
+      "class": "Identifier",
+      "name": "API",
+      "moduleUrl": "asset:NGDartForms/lib/components/reactive-search/reactive-search.dart",
+      "prefix": null,
+      "value": null
+    },
+    "ReactiveSearch": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "reactive-search",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "ReactiveSearch",
+        "moduleUrl": "asset:NGDartForms/lib/components/reactive-search/reactive-search.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "FormBuilder",
+                "moduleUrl": "asset:angular2/lib/src/common/forms/form_builder.dart",
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<div class=\"row\">\n\n    <h3>Reactive search</h3>\n\n    <div class=\"card mdl-shadow--2dp\">\n        <form [ngFormModel]=\"form\" #f=\"ngForm\">\n            <div>\n                <label for=\"fldSearch\">\n                    <h2>Lorem ipsum search</h2> ex: 'quasi', 'volupt'\n                    <input type=\"text\" id=\"fldSearch\" ngControl=\"search\"/>\n                    <div [hidden]=\"f.form.controls['search'].valid\">Requis</div>\n                </label>\n            </div>\n        </form>\n\n    </div>\n\n    <ul class=\"res-list\">\n        <li *ngFor=\"let r of res\">{{r['title']}}</li>\n    </ul>\n\n</div>",
+        "templateUrl": "asset:NGDartForms/lib/components/reactive-search/reactive-search.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:NGDartForms/lib/components/reactive-search/reactive-search.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

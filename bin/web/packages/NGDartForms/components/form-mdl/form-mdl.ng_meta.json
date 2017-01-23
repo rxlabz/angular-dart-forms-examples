@@ -1,0 +1,107 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "dart:convert",
+        "5": false
+      },
+      {
+        "1": "package:angular2/common.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "FormMDL",
+        "5": [
+          {
+            "1": "FormBuilder",
+            "4": "fb"
+          }
+        ],
+        "6": [
+          "OnInit"
+        ]
+      }
+    ],
+    "6": "form-mdl.dart",
+    "7": [
+      {
+        "1": "package:angular2/common.template.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/core.template.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "type": {
+    "FormMDL": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "form-mdl",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "FormMDL",
+        "moduleUrl": "asset:NGDartForms/lib/components/form-mdl/form-mdl.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "FormBuilder",
+                "moduleUrl": "asset:angular2/lib/src/common/forms/form_builder.dart",
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h1>FormMDL</h1>\n\n<div class=\"row sparound\">\n    <div class=\"card mdl-shadow--2dp\">\n\n        <form [ngFormModel]=\"userForm\" #f=\"ngForm\"\n              (ngSubmit)=\"onSubmit()\"\n        >\n            <div>\n                <label for=\"fldName\">\n                    Nom\n                    <input #fldName type=\"text\" id=\"fldName\" ngControl=\"name\"\n                           (blur)=\"nameValidation = true\"\n                    />\n                    <div class=\"warning-label rAlign\"\n                         [hidden]=\"userForm.find('name').valid || !nameValidation\">\n                        Requis\n                    </div>\n                </label>\n            </div>\n\n            <div>\n                <label for=\"fldAge\">\n                    Age\n                    <input type=\"number\" id=\"fldAge\" ngControl=\"age\"/>\n                </label>\n            </div>\n            <div>\n                Genre\n                <label for=\"rdF2\">\n                    Femme\n                    <input #genreF name=\"genre\" type=\"radio\" id=\"rdF2\" value=\"1\"\n                           [checked]=\"f.form.controls['genre'].value == '1'\"\n                           (change)=\"updateModel('genre','1')\"\n                    />\n                    <!--(change)=\"f.form.controls['genre'].value = '1'\"-->\n                </label>\n                <label for=\"rdH2\">\n                    Homme\n                    <input #genreH name=\"genre\" type=\"radio\" id=\"rdH2\" value=\"2\"\n                           [checked]=\"f.form.controls['genre'].value == '2'\"\n                           (change)=\"f.form.controls['genre'].updateValue('2')\"\n                    />\n                    <!--(change)=\"updateModel('genre','2')\"-->\n                    <!--(change)=\"updateGenre(genreH.value)\"-->\n                </label>\n            </div>\n\n            <div>\n                <label for=\"chkNews\">\n                    Recevoir newsletter\n                    <input id=\"chkNews\" type=\"checkbox\" ngControl=\"newsletter\"\n                    /></label>\n            </div>\n\n            <button type=\"submit\" [disabled]=\"!f.form.valid\">Valider</button>\n        </form>\n    </div>\n\n    <div>\n        {{userForm.value | json}}\n    </div>\n</div>",
+        "templateUrl": "asset:NGDartForms/lib/components/form-mdl/form-mdl.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:NGDartForms/lib/components/form-mdl/form-mdl.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

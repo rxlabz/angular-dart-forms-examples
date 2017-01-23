@@ -1,0 +1,114 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:NGDartForms/model.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/common.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2_components/angular2_components.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "MDFormMDL",
+        "5": [
+          {
+            "1": "FormBuilder",
+            "4": "fb"
+          }
+        ],
+        "6": [
+          "OnInit"
+        ],
+        "7": [
+          {
+            "2": "materialDirectives"
+          }
+        ]
+      }
+    ],
+    "6": "mdform-mdl.dart"
+  },
+  "type": {
+    "MDFormMDL": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "mdform-mdl",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "MDFormMDL",
+        "moduleUrl": "asset:NGDartForms/lib/components/mdform-mdl/mdform-mdl.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "FormBuilder",
+                "moduleUrl": null,
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h1>FormMDL</h1>\n\n<div class=\"card mdl-shadow--2dp column\">\n\n    <form novalidate #f=\"ngForm\"\n    >\n        <!--(ngSubmit)=\"onSubmit()\"-->\n        <material-input [(ngModel)]=\"user.name\" floatingLabel required label=\"Nom\"\n                        #name=\"ngForm\"\n        >\n        </material-input>\n\n        <div>\n            <material-input #fldAge type=\"number\" floatingLabel required label=\"Âge\"\n                            [ngModel]=\"user.age.toString()\"\n                            (ngModelChange)=\"age=$event\"\n            >\n            </material-input>\n        </div>\n        <div>\n            Genre\n\n            <material-radio-group (selectedChange)=\" user.genre = $event\">\n                <material-radio [value]=\"1\"\n                                [checked]=\"user.genre == 1\"\n                >Femme\n                </material-radio>\n                <material-radio [value]=\"2\"\n                                [checked]=\"user.genre == 2\"\n                >Homme\n                </material-radio>\n\n            </material-radio-group>\n        </div>\n\n        <div>\n\n            <material-toggle label=\"Recevoir newsletter\" color=\"blue-grey\"\n                             [(checked)]=\"user.newsletter\"\n            ></material-toggle>\n            <!--(checkedChange)=\"updateModel('newsletter',$event)\"-->\n        </div>\n\n        <material-button raised class=\"blue\" type=\"submit\" [disabled]=\"!f.form.valid\"\n                         (click)=\"onSubmit()\"\n        >\n            <glyph icon=\"check\"></glyph>\n            Valider\n        </material-button>\n    </form>\n</div>",
+        "templateUrl": "asset:NGDartForms/lib/components/mdform-mdl/mdform-mdl.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:NGDartForms/lib/components/mdform-mdl/mdform-mdl.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [
+        {
+          "class": "Identifier",
+          "name": "materialProviders",
+          "moduleUrl": null,
+          "prefix": null,
+          "value": null
+        }
+      ],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

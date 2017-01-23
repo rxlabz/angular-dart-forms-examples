@@ -1,0 +1,89 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:NGDartForms/model.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/common.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "FormTPL",
+        "6": [
+          "OnInit"
+        ],
+        "7": [
+          {
+            "2": "NgForm"
+          }
+        ]
+      }
+    ],
+    "6": "form-tpl.dart",
+    "7": [
+      {
+        "1": "package:NGDartForms/model.template.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/common.template.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular2/core.template.dart",
+        "4": "i2"
+      }
+    ]
+  },
+  "type": {
+    "FormTPL": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "form-tpl",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "FormTPL",
+        "moduleUrl": "asset:NGDartForms/lib/components/form-tpl/form-tpl.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h3>FormTPL</h3>\n\n<div class=\"row sparound\">\n    <div class=\"card mdl-shadow--2dp\">\n        <form #userForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n            <div>\n                <label for=\"fldName\">\n                    Nom *\n                    <input type=\"text\" id=\"fldName\" #name=\"ngForm\" required\n                           [(ngModel)]=\"model.name\" ngControl=\"name\"\n                           (blur)=\"validateName()\"\n                    />\n                    <div class=\"warning-label rAlign\" [hidden]=\"name.valid || !nameValidation\">Requis</div>\n                </label>\n            </div>\n\n            <div>\n                <label for=\"fldAge\">\n                    Age\n                    <input type=\"number\" id=\"fldAge\" #age=\"ngForm\"\n                           [ngModel]=\"model.age\" (ngModelChange)=\"updateAge($event)\"\n                           ngControl=\"age\"/>\n                </label>\n            </div>\n            <div>\n                Genre\n\n                <div><label for=\"rdF\">\n                    Femme\n                    <input #genreF name=\"genre\" type=\"radio\" id=\"rdF\" value=\"1\"\n                           (change)=\"updateGenre(genreF.value)\"/>\n                </label></div>\n                <div><label for=\"rdH\">\n                    Homme\n                    <input #genreH name=\"genre\" type=\"radio\" id=\"rdH\" value=\"2\"\n                           (change)=\"updateGenre(genreH.value)\"/>\n                </label></div>\n            </div>\n\n            <div>\n                <label for=\"chkNews\">\n                    Recevoir newsletter\n                    <input id=\"chkNews\" type=\"checkbox\"\n                           [(ngModel)]=\"model.newsletter\"\n                    /></label>\n            </div>\n\n            <button type=\"submit\">Valider</button>\n        </form>\n    </div>\n\n    <div>\n        <div>Name : {{model.name}}</div>\n        <div>Age : {{model.age}}</div>\n        <div>Genre : {{model.genre}}</div>\n        <div>Newsletter : {{model.newsletter}}</div>\n    </div>\n\n</div>",
+        "templateUrl": "asset:NGDartForms/lib/components/form-tpl/form-tpl.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:NGDartForms/lib/components/form-tpl/form-tpl.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

@@ -1,0 +1,29 @@
+<h1>ReactiveForm</h1>
+
+<div class="card mdl-shadow--2dp">
+    <form [ngFormModel]="form" #f="ngForm">
+
+        <div>
+            <label for="fldFirstname">
+                Prénom
+                <input type="text" id="fldFirstname" ngControl="firstname"
+                       (blur)="fNameValidation=true"
+                />
+                <div class="warning-label rAlign" [hidden]="!fNameInvalid">{{fNameError}}</div>
+            </label>
+
+            <!--{{fNameInvalid ? 'INVALID' : 'VALID'}}-->
+        </div>
+        <div>
+            <label for="fldLastname">
+                Nom
+                <input type="text" id="fldLastname" ngControl="lastname" required
+                       (blur)="lNameValidation=true"
+                />
+                <div class="warning-label rAlign" [hidden]="!lNameInvalid">Requis</div>
+            </label>
+        </div>
+        <button>Submit</button>
+    </form>
+
+</div>

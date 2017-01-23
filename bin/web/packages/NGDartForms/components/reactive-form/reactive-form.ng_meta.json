@@ -1,0 +1,103 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/common.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "ReactiveForm",
+        "5": [
+          {
+            "1": "FormBuilder",
+            "4": "fb"
+          }
+        ],
+        "6": [
+          "OnInit"
+        ]
+      }
+    ],
+    "6": "reactive-form.dart",
+    "7": [
+      {
+        "1": "package:angular2/common.template.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/core.template.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "type": {
+    "ReactiveForm": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "reactive-form",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "ReactiveForm",
+        "moduleUrl": "asset:NGDartForms/lib/components/reactive-form/reactive-form.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": [
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "FormBuilder",
+                "moduleUrl": "asset:angular2/lib/src/common/forms/form_builder.dart",
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          }
+        ]
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h1>ReactiveForm</h1>\n\n<div class=\"card mdl-shadow--2dp\">\n    <form [ngFormModel]=\"form\" #f=\"ngForm\">\n\n        <div>\n            <label for=\"fldFirstname\">\n                Prénom\n                <input type=\"text\" id=\"fldFirstname\" ngControl=\"firstname\"\n                       (blur)=\"fNameValidation=true\"\n                />\n                <div class=\"warning-label rAlign\" [hidden]=\"!fNameInvalid\">{{fNameError}}</div>\n            </label>\n\n            <!--{{fNameInvalid ? 'INVALID' : 'VALID'}}-->\n        </div>\n        <div>\n            <label for=\"fldLastname\">\n                Nom\n                <input type=\"text\" id=\"fldLastname\" ngControl=\"lastname\" required\n                       (blur)=\"lNameValidation=true\"\n                />\n                <div class=\"warning-label rAlign\" [hidden]=\"!lNameInvalid\">Requis</div>\n            </label>\n        </div>\n        <button>Submit</button>\n    </form>\n\n</div>\n",
+        "templateUrl": "asset:NGDartForms/lib/components/reactive-form/reactive-form.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:NGDartForms/lib/components/reactive-form/reactive-form.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

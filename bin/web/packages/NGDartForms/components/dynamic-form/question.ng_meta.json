@@ -1,0 +1,27 @@
+{
+  "ngDeps": null,
+  "type": {
+    "Question": {
+      "class": "Identifier",
+      "name": "Question",
+      "moduleUrl": "asset:NGDartForms/lib/components/dynamic-form/question.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Proposition": {
+      "class": "Identifier",
+      "name": "Proposition",
+      "moduleUrl": "asset:NGDartForms/lib/components/dynamic-form/question.dart",
+      "prefix": null,
+      "value": null
+    },
+    "User": {
+      "class": "Identifier",
+      "name": "User",
+      "moduleUrl": "asset:NGDartForms/lib/components/dynamic-form/question.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

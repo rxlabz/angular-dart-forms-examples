@@ -1,0 +1,17 @@
+:host {
+    /*display: flex;
+    flex-direction: column;*/
+    /*width: 240px;*/
+    height: 320px;
+}
+
+.res-list {
+    /*flex-grow: 1;*/
+    height: 300px;
+    overflow-y: auto;
+}
+
+/*
+.row{
+    align-items: stretch;
+}*/
