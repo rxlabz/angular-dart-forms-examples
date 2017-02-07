@@ -8,7 +8,7 @@ import 'package:angular2_components/angular2_components.dart';
     selector: 'mdinputs',
     templateUrl: 'mdinputs.html',
     styleUrls: const ['mdinputs.css'],
-    directives: const [materialDirectives],
+    directives: const [materialDirectives, CORE_DIRECTIVES],
     providers: const [materialProviders])
 class MdInputs implements OnInit {
 

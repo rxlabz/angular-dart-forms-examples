@@ -9,10 +9,10 @@ const String API = "https://jsonplaceholder.typicode.com/posts?title_like=";
 @Component(
     selector: 'reactive-search',
     templateUrl: 'reactive-search.html',
-    styleUrls: const ['reactive-search.css'])
+    styleUrls: const ['reactive-search.css'],
+    directives: const [NgFor])
 class ReactiveSearch implements OnInit {
   ControlGroup form;
-
 
   bool get fNameInvalid => !form.controls['firstname'].valid;
 
@@ -27,7 +27,6 @@ class ReactiveSearch implements OnInit {
     });
 
     listenSearch();
-
   }
 
   void listenSearch() {
@@ -35,7 +34,8 @@ class ReactiveSearch implements OnInit {
 
     search$
         .where((String v) => v.length > 3) // q,qu,qua,quas
-        .map((String v) => "${API}$v" ) /* "http://jsonplaceholder.typicode.com/posts?title_like=quas"*/
+        .map((String v) =>
+            "${API}$v") /* "http://jsonplaceholder.typicode.com/posts?title_like=quas"*/
         .asyncMap((v) => HttpRequest.getString(v))
         .map((j) => JSON.decode(j))
         .listen((value) => res = value, onError: (err) => print('error $err'));

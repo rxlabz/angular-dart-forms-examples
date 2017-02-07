@@ -38,7 +38,7 @@
 
             <button (click)="addPropControl()">new proposition</button>
 
-            <div *ngFor="let p of fo.form.controls['propositions'].controls; let i = index">
+            <div *ngFor="let p of controls; let i = index">
                 <input type="text" name="proposition" [ngFormControl]="p.controls['label']"
                        tabindex="{{(i*2)+2}}"
                        (key.enter)="addPropControl()"
@@ -52,7 +52,7 @@
 
         </form>
 
-        <p>{{fo.form.value | json}}</p>
+        <p>{{questionForm.value | json}}</p>
 
         <p>{{formQ}}</p>
     </div>

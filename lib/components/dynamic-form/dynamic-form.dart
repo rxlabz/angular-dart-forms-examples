@@ -5,7 +5,15 @@ import 'package:angular2/core.dart';
 @Component(
     selector: 'dynamic-form',
     templateUrl: 'dynamic-form.html',
-    styleUrls: const ['dynamic-form.css'])
+    styleUrls: const [
+      'dynamic-form.css'
+    ],
+    directives: const [
+      NgFor,
+      NgForm,
+      NgModel,NgFormModel,
+      CORE_DIRECTIVES
+    ])
 class DynForm implements OnInit {
   Question model;
 
@@ -16,6 +24,8 @@ class DynForm implements OnInit {
   ControlArray usersControlArray;
 
   String get formQ => new Question.fromMap(questionForm.value).toString();
+
+  List<AbstractControl> get controls => usersControlArray.controls;
 
   DynForm(FormBuilder this.fb) {
     initQModel();
@@ -65,12 +75,9 @@ class DynForm implements OnInit {
   }
 
   onBackspaceKey(String content, int propId, [bool isModelDriven = false]) {
-    if (content.length == 0)
-      if (!isModelDriven)
-        rmProp(propId);
-      else
-        rmPropControl(propId);
+    if (content.length == 0) if (!isModelDriven)
+      rmProp(propId);
+    else
+      rmPropControl(propId);
   }
-
 }
-
