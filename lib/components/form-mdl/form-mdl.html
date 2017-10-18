@@ -11,6 +11,7 @@
                     Nom
                     <input #fldName type="text" id="fldName" ngControl="name"
                            (blur)="nameValidation = true"
+                           (change)="updateModel('name',fldName.value)"
                     />
                     <div class="warning-label rAlign"
                          [hidden]="userForm.find('name').valid || !nameValidation">
@@ -22,7 +23,9 @@
             <div>
                 <label for="fldAge">
                     Age
-                    <input type="number" id="fldAge" ngControl="age"/>
+                    <input #fldAge type="number" id="fldAge" ngControl="age"
+                           (change)="updateModel('age',fldAge.value)"
+                    />
                 </label>
             </div>
             <div>
@@ -50,6 +53,7 @@
                 <label for="chkNews">
                     Recevoir newsletter
                     <input id="chkNews" type="checkbox" ngControl="newsletter"
+                           (change)="f.form.controls['genre'].updateValue('2')"
                     /></label>
             </div>
 

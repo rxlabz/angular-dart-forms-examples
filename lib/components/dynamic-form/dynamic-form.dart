@@ -1,6 +1,6 @@
 import 'package:NGDartForms/components/dynamic-form/question.dart';
-import 'package:angular2/common.dart';
-import 'package:angular2/core.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 @Component(
     selector: 'dynamic-form',
@@ -9,10 +9,16 @@ import 'package:angular2/core.dart';
       'dynamic-form.css'
     ],
     directives: const [
+      formDirectives,
+      CORE_DIRECTIVES,
       NgFor,
       NgForm,
-      NgModel,NgFormModel,
-      CORE_DIRECTIVES
+      NgModel,
+      NgFormModel,
+      NgFormControl,
+    ],
+    pipes: const [
+      JsonPipe
     ])
 class DynForm implements OnInit {
   Question model;

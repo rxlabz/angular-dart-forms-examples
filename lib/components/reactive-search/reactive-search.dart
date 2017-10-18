@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
 
-import 'package:angular2/common.dart';
-import 'package:angular2/core.dart';
+import 'package:angular/angular.dart';
+import 'package:angular/core.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 const String API = "https://jsonplaceholder.typicode.com/posts?title_like=";
 
@@ -10,7 +12,8 @@ const String API = "https://jsonplaceholder.typicode.com/posts?title_like=";
     selector: 'reactive-search',
     templateUrl: 'reactive-search.html',
     styleUrls: const ['reactive-search.css'],
-    directives: const [NgFor])
+    pipes: const [JsonPipe],
+    directives: const [CORE_DIRECTIVES, formDirectives])
 class ReactiveSearch implements OnInit {
   ControlGroup form;
 
@@ -26,7 +29,7 @@ class ReactiveSearch implements OnInit {
       'search': '',
     });
 
-    listenSearch();
+
   }
 
   void listenSearch() {
@@ -46,5 +49,7 @@ class ReactiveSearch implements OnInit {
   }
 
   @override
-  ngOnInit() {}
+  ngOnInit() {
+    listenSearch();
+  }
 }

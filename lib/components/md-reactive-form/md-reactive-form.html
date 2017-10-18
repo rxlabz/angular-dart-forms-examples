@@ -2,7 +2,7 @@
 
 <div class="card mdl-shadow--2dp column">
 
-    <form novalidate [ngFormModel]="userForm" #f="ngForm"
+    <form novalidate #f="ngForm"   (ngSubmit)="onSubmit()"
     >
         <!--(ngSubmit)="onSubmit()"-->
         <material-input ngControl="name" floatingLabel required label="Nom">
@@ -46,8 +46,8 @@
         </div>
 
         <material-button raised class="blue" type="submit" [disabled]="!f.form.valid"
-                         (click)="onSubmit()"
         >
+                         <!--(trigger)="onSubmit()"-->
             <glyph icon="check"></glyph>
             Valider
         </material-button>

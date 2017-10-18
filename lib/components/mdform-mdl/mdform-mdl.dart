@@ -1,13 +1,13 @@
 import 'package:NGDartForms/model.dart';
-import 'package:angular2/common.dart';
-import 'package:angular2/core.dart';
-import 'package:angular2_components/angular2_components.dart';
+import 'package:angular/core.dart';
+import 'package:angular_components/angular_components.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 @Component(
     selector: 'mdform-mdl',
     templateUrl: 'mdform-mdl.html',
     styleUrls: const ['mdform-mdl.css'],
-    directives: const [materialDirectives],
+    directives: const [materialDirectives, formDirectives],
     providers: const [materialProviders])
 class MDFormMDL implements OnInit {
   User user;

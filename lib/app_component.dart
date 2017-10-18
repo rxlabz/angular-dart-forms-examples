@@ -5,22 +5,28 @@
 import 'package:NGDartForms/components/dynamic-form/dynamic-form.dart';
 import 'package:NGDartForms/components/forms_demo.dart';
 import 'package:NGDartForms/components/mdinputs/mdinputs.dart';
-import 'package:angular2/core.dart';
-import 'package:angular2_components/angular2_components.dart';
+import 'package:angular/core.dart';
+import 'package:angular_components/angular_components.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 @Component(
     selector: 'my-app',
     styleUrls: const ['app_component.css'],
     templateUrl: 'app_component.html',
-    providers: const [materialProviders],
+    providers: const [materialProviders, FormBuilder],
     directives: const [
       materialDirectives,
+      formDirectives,
+      NgForm, NgFormModel,
+      NgFormControl,
       FormTPL,
       FormMDL,
       ReactiveForm,
       ReactiveSearch,
       MDFormMDL,
+      DynForm,
+      /*
       MdInputs,
-      DynForm
+      */
     ])
 class AppComponent {}

@@ -6,7 +6,7 @@
         <div>
             <label for="fldFirstname">
                 Prénom
-                <input type="text" id="fldFirstname" ngControl="firstname"
+                <input id="fldFirstname" ngControl="firstname"
                        (blur)="fNameValidation=true"
                 />
                 <div class="warning-label rAlign" [hidden]="!fNameInvalid">{{fNameError}}</div>
@@ -17,7 +17,7 @@
         <div>
             <label for="fldLastname">
                 Nom
-                <input type="text" id="fldLastname" ngControl="lastname" required
+                <input id="fldLastname" ngControl="lastname" required
                        (blur)="lNameValidation=true"
                 />
                 <div class="warning-label rAlign" [hidden]="!lNameInvalid">Requis</div>
@@ -25,5 +25,7 @@
         </div>
         <button>Submit</button>
     </form>
+
+    <div>{{f.value | json}}</div>
 
 </div>

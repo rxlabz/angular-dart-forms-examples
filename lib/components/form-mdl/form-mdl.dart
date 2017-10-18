@@ -1,12 +1,15 @@
 import 'dart:convert';
 
-import 'package:angular2/common.dart';
-import 'package:angular2/core.dart';
+import 'package:angular/angular.dart';
+import 'package:angular/core.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 @Component(
     selector: 'form-mdl',
     templateUrl: 'form-mdl.html',
-    styleUrls: const ['form-mdl.css'])
+    styleUrls: const ['form-mdl.css'],
+    directives: const [formDirectives],
+    pipes: const [JsonPipe])
 class FormMDL implements OnInit {
   ControlGroup userForm;
 
@@ -16,7 +19,7 @@ class FormMDL implements OnInit {
     userForm = fb.group({
       "name": ['', Validators.required],
       "age": new Control(0),
-      "genre": [ null, Validators.required],
+      "genre": [null, Validators.required],
       "newsletter": new Control(true)
     });
   }
@@ -28,7 +31,7 @@ class FormMDL implements OnInit {
     return JSON.encode(userForm.value);
   }
 
-  onSubmit(){
+  onSubmit() {
     print('FormMDL.onSubmit » value ${value}');
   }
 

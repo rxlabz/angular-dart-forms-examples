@@ -1,10 +1,16 @@
-import 'package:angular2/common.dart';
-import 'package:angular2/core.dart';
+import 'dart:async';
+
+import 'package:angular/angular.dart';
+import 'package:angular/core.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 @Component(
     selector: 'reactive-form',
     templateUrl: 'reactive-form.html',
-    styleUrls: const ['reactive-form.css'])
+    styleUrls: const ['reactive-form.css'],
+    directives: const [formDirectives],
+    pipes: const [JsonPipe],
+    exportAs: "form")
 class ReactiveForm implements OnInit {
   ControlGroup form;
 
@@ -24,7 +30,9 @@ class ReactiveForm implements OnInit {
     form = fb.group({
       'firstname': [
         '',
-        Validators.compose([Validators.required, ])
+        Validators.compose([
+          Validators.required,
+        ])
       ],
       'lastname': ['', Validators.required],
     });
