@@ -1,4 +1,6 @@
-# AngularDart 4.0.0 / angular_forms 1.0.0 
+# AngularDart Forms example 
+
+AngularDart 4.0.0 / angular_components 0.7.0 / angular_forms 1.0.0 
 
 [Demo](https://rxlabz.github.io/angular-dart-forms-examples/)
 
